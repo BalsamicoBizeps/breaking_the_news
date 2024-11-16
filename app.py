@@ -19,7 +19,7 @@ def load_data(filepath):
 
 # load data
 #data_filepath = "/Users/reppmazc/Documents/IRONHACK/quests/final_project/breaking_news_data.csv"
-data_filepath = "/Users/reppmazc/Documents/IRONHACK/quests/final_project/combined_file.csv"
+data_filepath = "https://github.com/BalsamicoBizeps/breaking_the_news/blob/main/combined_file_new.csv"
 
 df = load_data(data_filepath)
 
