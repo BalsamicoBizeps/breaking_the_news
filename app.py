@@ -231,7 +231,7 @@ with tab1:
         fig.update_xaxes(
             tickformat="%b %Y",
             dtick="M1")
-        st.plotly_chart(fig, use_container_width=True, key="total_sentiment_chart")
+        st.plotly_chart(fig, use_container_width=True, key="over_time_chart")
 
     st.markdown("<hr style='border:1px solid #333'>", unsafe_allow_html=True)
 
@@ -438,15 +438,15 @@ with tab1:
         monthly_topic_data['Datum'] = pd.to_datetime(monthly_topic_data['Datum'], format='%Y%m')
 
         # Create the line plot with Plotly
-        fig = px.line(monthly_topic_data, x="Datum", y="Relative Häufigkeit", color="Source")
+        fig3 = px.line(monthly_topic_data, x="Datum", y="Relative Häufigkeit", color="Source")
 
         # Update x-axis to show each month
-        fig.update_xaxes(
+        fig3.update_xaxes(
             tickformat="%b %Y",
             dtick="M1")
 
         # Display the plot in Streamlit
-        st.plotly_chart(fig2, use_container_width=True, key="sentiment_by_medium_chart")
+        st.plotly_chart(fig3, use_container_width=True, key="over_time_2_chart")
 
 
 with tab2:
