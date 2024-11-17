@@ -231,7 +231,7 @@ with tab1:
         fig.update_xaxes(
             tickformat="%b %Y",
             dtick="M1")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="total_sentiment_chart")
 
     st.markdown("<hr style='border:1px solid #333'>", unsafe_allow_html=True)
 
@@ -446,7 +446,7 @@ with tab1:
             dtick="M1")
 
         # Display the plot in Streamlit
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig2, use_container_width=True, key="sentiment_by_medium_chart")
 
 
 with tab2:
