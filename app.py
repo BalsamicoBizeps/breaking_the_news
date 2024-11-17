@@ -147,19 +147,19 @@ with tab1:
         total_sentiment_counts = total_sentiment_counts[['negative', 'neutral', 'positive']]
 
         # bar chart for total sentiment
-        fig = go.Figure(data=[
+        fig4 = go.Figure(data=[
             go.Bar(
                 x=total_sentiment_counts.index,
                 y=total_sentiment_counts.values,
                 marker_color=[sentiment_colors[s] for s in total_sentiment_counts.index])])
-        fig.update_layout(
+        fig4.update_layout(
             xaxis_title="Stimmung",
             yaxis_title="Anzahl der Artikel",
             paper_bgcolor="#0e1214",
             plot_bgcolor="#0e1214",
             font=dict(color="#f8f8fa"),
             showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig4, use_container_width=True)
 
     with col2:
         st.markdown("<p style='font-size:16px'>Stimmung nach Medium:</p>", unsafe_allow_html=True)
@@ -227,11 +227,11 @@ with tab1:
         monthly_topic_data['Datum'] = pd.to_datetime(monthly_topic_data['Datum'], format='%Y%m')
 
 
-        fig = px.line(monthly_topic_data, x="Datum", y="Relative Häufigkeit", color="Source")
-        fig.update_xaxes(
+        fig5 = px.line(monthly_topic_data, x="Datum", y="Relative Häufigkeit", color="Source")
+        fig5.update_xaxes(
             tickformat="%b %Y",
             dtick="M1")
-        st.plotly_chart(fig, use_container_width=True, key="over_time_chart")
+        st.plotly_chart(fig5, use_container_width=True, key="over_time_chart")
 
     st.markdown("<hr style='border:1px solid #333'>", unsafe_allow_html=True)
 
@@ -335,16 +335,16 @@ with tab1:
         colors = [pol_leaning_colors[leaning] for leaning in labels]
 
         # Create the Plotly donut chart
-        fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=0.3, marker=dict(colors=colors))])
+        fig6 = go.Figure(data=[go.Pie(labels=labels, values=values, hole=0.3, marker=dict(colors=colors))])
 
         # Update layout with adjusted legend position and moderate margins
-        fig.update_layout(
+        fig6.update_layout(
             showlegend=True,
             legend=dict(orientation="v", yanchor="top", y=1, xanchor="right", x=1.2),
             margin=dict(t=40, b=40, l=40, r=40),
             paper_bgcolor="#0e1214",
             font=dict(color="#f8f8fa"))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig6, use_container_width=True)
 
     st.markdown("<hr style='border:1px solid #333'>", unsafe_allow_html=True)
 
@@ -360,18 +360,18 @@ with tab1:
             if sentiment not in total_sentiment_counts:
                 total_sentiment_counts[sentiment] = 0
 
-        fig = go.Figure(data=[go.Bar(
+        fig7 = go.Figure(data=[go.Bar(
             x=total_sentiment_counts.index,
             y=total_sentiment_counts.values,
             marker_color=[sentiment_colors[s] for s in total_sentiment_counts.index])])
-        fig.update_layout(
+        fig7.update_layout(
             xaxis_title="Stimmung",
             yaxis_title="Anzahl der Artikel",
             paper_bgcolor="#0e1214",
             plot_bgcolor="#0e1214",
             font=dict(color="#f8f8fa"),
             showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig7, use_container_width=True)
 
     with col2:
         st.markdown("<p style='font-size:16px'>Stimmung nach Medium:</p>", unsafe_allow_html=True)
